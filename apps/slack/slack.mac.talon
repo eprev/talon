@@ -2,9 +2,10 @@ os: mac
 app: slack
 -
 # Workspace
-workspace <number>: key("cmd-{number}")
-previous workspace: key(cmd-shift-[)
-next workspace: key(cmd-shift-])
+(workspace | work) <number>: key("cmd-{number}")
+(workspace | work) last: key(cmd-shift-[)
+(workspace | work) next: key(cmd-shift-])
+
 # Channel
 channel: key(cmd-k)
 channel <user.text>:
