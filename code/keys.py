@@ -99,6 +99,7 @@ ctx.lists["self.symbol_key"] = {
     "back tick": "`",
     "`": "`",
     "comma": ",",
+    "kamma": ",",
     ",": ",",
     "dot": ".",
     "period": ".",

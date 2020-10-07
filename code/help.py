@@ -72,7 +72,7 @@ def gui_alphabet(gui: imgui.GUI):
         gui.text("{}: {}".format(val, key))
 
     gui.spacer()
-    if gui.button("close"):
+    if gui.button("Close"):
         gui_alphabet.hide()
 
 
@@ -94,7 +94,7 @@ def format_context_button(index: int, context_label: str, context_name: str) -> 
         return "{}. {}{}".format(
             index,
             context_label,
-            "*"
+            " *"
             if context_map.get(context_name, None) in cached_active_contexts_list
             else "",
         )
@@ -183,13 +183,13 @@ def gui_context_help(gui: imgui.GUI):
 
         if not show_enabled_contexts_only:
             gui.text(
-                "Help: All ({}/{}) (* = active)".format(
+                "Help: All ({}/{})".format(
                     current_context_page, total_page_count
                 )
             )
         else:
             gui.text(
-                "Help: Active Contexts Only ({}/{})".format(
+                "Help: Active Contexts ({}/{})".format(
                     current_context_page, total_page_count
                 )
             )
@@ -214,10 +214,10 @@ def gui_context_help(gui: imgui.GUI):
 
         if total_page_count > 1:
             gui.spacer()
-            if gui.button("Next..."):
+            if gui.button("Next"):
                 actions.user.help_next()
 
-            if gui.button("Previous..."):
+            if gui.button("Previous"):
                 actions.user.help_previous()
 
     # if there's a selected context, draw the commands for it
@@ -229,13 +229,13 @@ def gui_context_help(gui: imgui.GUI):
 
         gui.spacer()
         if total_page_count > 1:
-            if gui.button("Next..."):
+            if gui.button("Next"):
                 actions.user.help_next()
 
-            if gui.button("Previous..."):
+            if gui.button("Previous"):
                 actions.user.help_previous()
 
-        if gui.button("Return"):
+        if gui.button("Back"):
             actions.user.help_return()
 
     if gui.button("Refresh"):
