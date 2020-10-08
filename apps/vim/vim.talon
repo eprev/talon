@@ -2,6 +2,19 @@ app: vim
 -
 insert (mode | here)$:
     key(i)
+insert <user.text>:
+    insert("i{text}")
+    key(escape)
+insert <user.unmodified_key>:
+    insert("i{unmodified_key}")
+    key(escape)
+append <user.text>:
+    insert("i{text}")
+    key(escape)
+append <user.unmodified_key>:
+    insert("i{unmodified_key}")
+    key(escape)
+
 normal mode$: key(esc)
 undo: key(u)
 redo: key(ctrl-r)
@@ -12,12 +25,10 @@ bat (previous | prev | last):
     key(g)
     key(T)
 
-[<number>] <user.vim_arrows>$:
-  insert("{number}" or "")
+<number> <user.vim_arrows>$:
+  insert("{number}")
   key(vim_arrows)
 
-#<user.vim_all>$:
-#    insert("{vim_all}")
 <user.vim_commands> (<user.vim_positions>) <user.vim_text_objects>$:
     key(vim_commands)
     insert("{vim_positions}" or "")
@@ -51,6 +62,9 @@ action(edit.indent_less):
 action(edit.delete_line):
     insert("dd")
 
+(shift | indent) right: insert(">>")
+(shift | indent) left: insert("<<")
+
 action(edit.redo):
     key(ctrl-r)
 action(edit.undo):
@@ -77,7 +91,7 @@ force [file] (close|quit):
 force (close|quit) all:
     insert(":qa!\n")
 
-refresh file:
+file refresh:
     insert(":e!\n")
 edit [file|new]:
     insert(":e ")
@@ -95,3 +109,35 @@ go (last|prev|previous) jump [entry]: key(ctrl-o)
 go (next|newer) jump [entry]: key(ctrl-i)
 (go|jump) [to] last change: insert("g;")
 (go|jump) [to] next change: user.vim_normal_mode("g,")
+
+scroll top: insert("zt")
+scroll (center|middle): insert("zz")
+scroll bottom: insert("zb")
+
+wipe line: inset("0d$")
+(dup|duplicate) line: insert("Yp")
+append line: key(A)
+prepend line: key(I)
+
+sort (selected | visual | highlighted):
+    insert(":")
+    # leave time for vim to populate '<,'>
+    sleep(50ms)
+    insert("sort\n")
+
+replace [in] (selected | visual | highlighted):
+    insert(":")
+    # leave time for vim to populate '<,'>
+    sleep(50ms)
+    insert("s///g")
+    key(left:3)
+
+(visual | highlight) all: insert("ggVG")
+reselect: insert("gv")
+
+
+force last [comand]:
+    key(: up ! enter)
+
+magnet <user.unmodified_key>: insert("f{unmodified_key}")
+magnet back <user.unmodified_key>: insert("F{unmodified_key}")
