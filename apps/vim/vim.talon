@@ -18,6 +18,8 @@ append <user.unmodified_key>:
 normal mode$: key(esc)
 undo: key(u)
 redo: key(ctrl-r)
+bat new: 
+    insert(":tabe\n")
 bat (next | neck):
     key(g)
     key(t)
@@ -141,3 +143,7 @@ force last [comand]:
 
 magnet <user.unmodified_key>: insert("f{unmodified_key}")
 magnet back <user.unmodified_key>: insert("F{unmodified_key}")
+
+comment: insert("gcc")
+
+[open] current directory: insert(":ed %%\n")

@@ -28,19 +28,19 @@ empty escaped string:
     "\\'\\'"
     key(left)
     key(left)
-(inside parens | args):
+(empty parens | args):
 	insert("()")
 	key(left)
-inside (squares | list): 
+empty (squares | list): 
 	insert("[]") 
 	key(left)
-inside (bracket | braces): 
+empty (bracket | braces): 
 	insert("{}") 
 	key(left)
-inside percent: 
+empty percent: 
 	insert("%%") 
 	key(left)
-inside quotes:
+empty quotes:
 	insert('""')
 	key(left)
 angle this: 
