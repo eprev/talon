@@ -116,7 +116,7 @@ scroll top: insert("zt")
 scroll (center|middle): insert("zz")
 scroll bottom: insert("zb")
 
-wipe line: inset("0d$")
+wipe line: insert("0d$")
 (dup|duplicate) line: insert("Yp")
 append line: key(A)
 prepend line: key(I)
