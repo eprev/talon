@@ -1,8 +1,12 @@
+import re
 from talon import Module, Context, actions
 
 ctx = Context()
 mod = Module()
-mod.apps.vim = "title: /vim/i"
+mod.apps.vim = r"""
+title: /vim/i
+app.bundle: com.apple.Terminal
+"""
 
 ctx.matches = r"""
 app: vim
@@ -79,4 +83,21 @@ def vim_positions(m):
 @ctx.capture(rule='{self.vim_text_objects}')
 def vim_text_objects(m):
     return m.vim_text_objects
+
+@ctx.action_class("win")
+class win_actions:
+    def filename():
+        title = actions.win.title()
+        m = re.search(r'VIM \((?P<file>.*?)@(?P<mode>\w+)\)', title)
+        if m:
+            result = m.group('file')
+            # print(result)
+            if "." in result:
+                return result
+        return ""
+
+    def file_ext():
+        ext = actions.win.filename().split(".")[-1]
+        # print(ext)
+        return ext
 

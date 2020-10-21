@@ -1,4 +1,4 @@
-app: apple_terminal
+app: terminal
 -
 tag(): terminal
 tag(): user.file_manager
@@ -32,4 +32,4 @@ suspend:
 resume:
   insert("fg")
   key(enter)
-
+slap: key(enter)

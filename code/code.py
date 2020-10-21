@@ -32,10 +32,8 @@ function_list = []
 library_list = []
 extension_lang_map = {
     "asm": "assembly",
-    "bat": "batch",
     "c": "c",
     "cpp": "cplusplus",
-    "cs": "csharp",
     "gdb": "gdb",
     "go": "go",
     "h": "c",
@@ -43,14 +41,12 @@ extension_lang_map = {
     "lua": "lua",
     "md": "markdown",
     "pl": "perl",
-    "ps1": "powershell",
     "py": "python",
     "rb": "ruby",
     "s": "assembly",
     "sh": "bash",
     "snippets": "snippets",
     "talon": "talon",
-    "vba": "vba",
     "vim": "vim",
     "js": "javascript",
     "ts": "typescript",
@@ -60,24 +56,20 @@ extension_lang_map = {
 # flag indicates whether or not the title tracking is enabled
 forced_language = False
 
-
 @mod.capture(rule="{user.code_functions}")
 def code_functions(m) -> str:
     """Returns a function name"""
     return m.code_functions
-
 
 @mod.capture(rule="{user.code_types}")
 def code_types(m) -> str:
     """Returns a type"""
     return m.code_types
 
-
 @mod.capture(rule="{user.code_libraries}")
 def code_libraries(m) -> str:
     """Returns a type"""
     return m.code_libraries
-
 
 @ctx.action_class("code")
 class code_actions:
@@ -99,11 +91,9 @@ class code_actions:
         # print("code.language: " + result)
         return result
 
-
 # create a mode for each defined language
 for __, lang in extension_lang_map.items():
     mod.mode(lang)
-
 
 @mod.action_class
 class Actions:

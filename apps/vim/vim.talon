@@ -64,8 +64,8 @@ action(edit.indent_less):
 action(edit.delete_line):
     insert("dd")
 
-(shift | indent) right: insert(">>")
-(shift | indent) left: insert("<<")
+(move | indent) right: insert(">>")
+(move | indent) left: insert("<<")
 
 action(edit.redo):
     key(ctrl-r)
@@ -117,6 +117,7 @@ scroll (center|middle): insert("zz")
 scroll bottom: insert("zb")
 
 wipe line: insert("0d$")
+delete line: insert("dd")
 (dup|duplicate) line: insert("Yp")
 append line: key(A)
 prepend line: key(I)
@@ -147,3 +148,4 @@ magnet back <user.unmodified_key>: insert("F{unmodified_key}")
 comment: insert("gcc")
 
 [open] current directory: insert(":ed %%\n")
+config reload: insert(",vs")
