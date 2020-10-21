@@ -15,6 +15,9 @@ append <user.unmodified_key>:
     insert("i{unmodified_key}")
     key(escape)
 
+command <user.text>:
+    insert(":{text}")
+
 normal mode$: key(esc)
 undo: key(u)
 redo: key(ctrl-r)
