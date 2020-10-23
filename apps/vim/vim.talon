@@ -1,32 +1,45 @@
 app: vim
 -
+
+settings():
+    user.vim_debug = 1
+
 insert (mode | here)$:
-    key(i)
-insert <user.text>:
-    insert("i{text}")
-    key(escape)
-insert <user.unmodified_key>:
-    insert("i{unmodified_key}")
-    key(escape)
-append <user.text>:
-    insert("i{text}")
-    key(escape)
-append <user.unmodified_key>:
-    insert("i{unmodified_key}")
-    key(escape)
+    user.vim_set_mode("i")
+# insert <user.text>:
+#     insert("i{text}")
+#     key(escape)
+# insert <user.unmodified_key>:
+#     insert("i{unmodified_key}")
+#     key(escape)
+# append <user.text>:
+#     insert("i{text}")
+#     key(escape)
+# append <user.unmodified_key>:
+#     insert("i{unmodified_key}")
+#     key(escape)
+
+command mode$:
+    user.vim_set_mode_np("c")
 
 command <user.text>:
-    insert(":{text}")
+    user.vim_set_mode_np("c")
+    insert("{text}")
 
 normal mode$: key(esc)
-undo: key(u)
+undo:
+    user.vim_set_mode("n")
+    key(u)
 redo: key(ctrl-r)
 bat new: 
+    user.vim_set_mode("n")
     insert(":tabe\n")
 bat (next | neck):
+    user.vim_set_mode("n")
     key(g)
     key(t)
 bat (previous | prev | last):
+    user.vim_set_mode("n")
     key(g)
     key(T)
 
@@ -40,42 +53,61 @@ bat (previous | prev | last):
   key(vim_text_objects)
 
 action(edit.find):
+    user.vim_set_mode_np("n")
     key(/)
 action(edit.find_next):
+    user.vim_set_mode_np("n")
     key(n)
 action(edit.word_left):
+    user.vim_set_mode("n")
     key(b)
 action(edit.word_right):
+    user.vim_set_mode("n")
     key(w)
 action(edit.line_start):
+    user.vim_set_mode("n")
     key(^)
 action(edit.line_end):
+    user.vim_set_mode("n")
     key($)
 action(edit.file_end):
+    user.vim_set_mode("n")
     key(G)
 action(edit.file_start):
+    user.vim_set_mode("n")
     insert("gg")
 action(edit.page_down):
+    user.vim_set_mode("n")
     key(ctrl-f)
 action(edit.page_up):
+    user.vim_set_mode("n")
     key(ctrl-b)
 
 action(edit.indent_more):
+    user.vim_set_mode("n")
     insert(">>")
 action(edit.indent_less):
+    user.vim_set_mode("n")
     insert("<<")
 action(edit.delete_line):
+    user.vim_set_mode("n")
     insert("dd")
 
-(move | indent) right: insert(">>")
-(move | indent) left: insert("<<")
+(move | indent) right:
+    user.vim_set_mode("n")
+    insert(">>")
+(move | indent) left:
+    user.vim_set_mode("n")
+    insert("<<")
 
 action(edit.redo):
     key(ctrl-r)
 action(edit.undo):
-    key(u)
+    user.vim_set_mode("n")
+    insert("<<")
 
 action(edit.save):
+    user.vim_set_mode("n")
     insert(":w\n")
 sage:
     insert(":w\n")
