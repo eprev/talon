@@ -43,6 +43,9 @@ empty percent:
 empty quotes:
 	insert('""')
 	key(left)
+empty (angle brackets | angles):
+	insert('<>')
+	key(left)
 angle this: 
     text = edit.selected_text()
     user.paste("<{text}>")

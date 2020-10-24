@@ -182,5 +182,13 @@ magnet back <user.unmodified_key>: insert("F{unmodified_key}")
 
 comment: insert("gcc")
 
-[open] current directory: insert(":ed %%\n")
+open [current] (dear | directory): insert(":ed %%\n")
 config reload: insert(",vs")
+
+find <user.text>:
+    user.vim_set_mode_np("n")
+    key(/)
+    insert("{text}")
+    key(enter)
+next:
+    key(n)
