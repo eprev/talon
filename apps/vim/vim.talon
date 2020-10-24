@@ -19,7 +19,7 @@ insert (mode | here)$:
 #     insert("i{unmodified_key}")
 #     key(escape)
 
-command mode$:
+command$:
     user.vim_set_mode_np("c")
 
 command <user.text>:
