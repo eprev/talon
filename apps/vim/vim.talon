@@ -4,6 +4,9 @@ app: vim
 settings():
     user.vim_debug = 1
 
+^over:
+    key(escape)
+
 insert (mode | here)$:
     user.vim_set_mode("i")
 # insert <user.text>:
@@ -110,33 +113,44 @@ action(edit.save):
     user.vim_set_mode("n")
     insert(":w\n")
 sage:
+    user.vim_set_mode("n")
     insert(":w\n")
 file save as:
+    user.vim_set_mode_np("n")
     insert(":w ")
 file save all:
+    user.vim_set_mode_np("n")
     insert(":wa\n")
 (file save and (quit|close)|squeak):
+    user.vim_set_mode_np("n")
     insert(":wq\n")
 file (close|quite):
+    user.vim_set_mode_np("n")
     insert(":q\n")
 force [file] (close|quit):
+    user.vim_set_mode_np("n")
     insert(":q!\n")
 
 (close|quit) all:
+    user.vim_set_mode_np("n")
     insert(":qa\n")
 
 force (close|quit) all:
+    user.vim_set_mode_np("n")
     insert(":qa!\n")
 
 file refresh:
+    user.vim_set_mode_np("n")
     insert(":e!\n")
 edit [file|new]:
+    user.vim_set_mode_np("n")
     insert(":e ")
 
 matching: key(%)
 matching <user.symbol_key>: insert("f{symbol_key}%")
 
 [go] (row|line) <number>:
+    user.vim_set_mode_np("n")
     insert(":{number}\n")
 
 
