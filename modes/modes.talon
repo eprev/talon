@@ -17,6 +17,9 @@ talon sleep: speech.disable()
 talon wake: speech.enable()
 dragon mode: speech.disable()
 talon mode: speech.enable()
+start dictation:
+    key(cmd cmd)
+    speech.disable()
 ^dictation mode$:
     mode.disable("sleep")
     mode.disable("command")

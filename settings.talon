@@ -21,6 +21,7 @@ settings():
     #the amount to scroll up/down (equivalent to mouse wheel on Windows by default)
     user.mouse_wheel_down_amount = 120
     speech.timeout = 0.250
+    # speech.record_all = 1
 	
 # uncomment tag to enable mouse grid
 # tag(): user.mouse_grid_enabled
