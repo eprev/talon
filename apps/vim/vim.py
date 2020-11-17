@@ -49,40 +49,20 @@ ctx.lists["self.vim_text_objects"] = {
     "brackets": '[',
 }
 
-@mod.capture
+@mod.capture(rule="{self.vim_arrows}")
 def vim_arrows(m) -> str:
-    "An arrow direction to be converted to VIM direction"
     return m.vim_arrows
 
-@ctx.capture(rule="{self.vim_arrows}")
-def vim_arrows(m):
-    return m.vim_arrows
-
-@mod.capture
+@mod.capture(rule='{self.vim_commands}')
 def vim_commands(m) -> str:
-    "A command to be converted to VIM key"
     return m.vim_commands
 
-@mod.capture
+@mod.capture(rule='{self.vim_positions}')
 def vim_positions(m) -> str:
-    "A position to be converted to VIM key"
     return m.vim_positions
 
-@mod.capture
+@mod.capture(rule='{self.vim_text_objects}')
 def vim_text_objects(m) -> str:
-    "A text object to be converted to VIM key"
-    return m.vim_text_objects
-
-@ctx.capture(rule='{self.vim_commands}')
-def vim_commands(m):
-    return m.vim_commands
-
-@ctx.capture(rule='{self.vim_positions}')
-def vim_positions(m):
-    return m.vim_positions
-
-@ctx.capture(rule='{self.vim_text_objects}')
-def vim_text_objects(m):
     return m.vim_text_objects
 
 mod.setting(
