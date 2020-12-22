@@ -134,6 +134,7 @@ punctuation_words = {
     "`": "`",
     ",": ",",  # <== these things
     "back tick": "`",
+    "tick": "`",
     "comma": ",",
     "period": ".",
     "semicolon": ";",
@@ -163,6 +164,7 @@ symbol_key_words = {
     "backslash": "\\",
     "minus": "-",
     "dash": "-",
+    "em dash": "—",
     "equals": "=",
     "plus": "+",
     "tilde": "~",
