@@ -4,6 +4,10 @@ tag(): browser
 tag(): user.tabs
 #action(browser.address):
 
+action(app.tab_close): key(cmd-w)
+action(app.tab_next): key(cmd-})
+action(app.tab_previous): key(cmd-{)
+
 action(browser.bookmark):
 	key(cmd-d)
 
@@ -23,6 +27,11 @@ action(browser.focus_address):
 
 action(browser.focus_search):
 	browser.focus_address()
+
+action(browser.go):
+	browser.focus_address()
+	insert(url)
+	key(enter)
 
 action(browser.go_blank):
 	key(cmd-n)
