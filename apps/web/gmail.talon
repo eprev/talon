@@ -29,9 +29,17 @@ go to contacts:
   key(g)
   key(c)
 
-go to label:
+go to label$:
   key(g)
   key(l)
+
+go to label <user.text>:
+    key(g)
+    key(l)
+    sleep(150ms)
+    insert("{text}")
+    sleep(150ms)
+    key(enter)
 
 go to tasks:
   key(g)
@@ -40,6 +48,13 @@ go to tasks:
 go to search filters:
   key(g)
   key(f)
+
+show unread only:
+    key(/)
+    sleep(150ms)
+    key(cmd-right)
+    insert(" label:unread")
+    key(enter)
 
 
 select all (conversations | messages):
